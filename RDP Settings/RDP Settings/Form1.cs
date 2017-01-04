@@ -79,7 +79,9 @@ namespace RDP_Settings
             InitializeComponent();
             updateReg();
             updateMRU();
-            txtBox_3_port.Text = portKey.GetValue("PortNumber").ToString(); 
+            txtBox_3_port.Text = portKey.GetValue("PortNumber").ToString();
+            MessageBox.Show(@"This program makes changes to the Windows Registry.
+Make sure you have a backup!","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }
 
         private void btn_1_refresh_Click(object sender, EventArgs e)
