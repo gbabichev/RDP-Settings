@@ -144,7 +144,7 @@ Make sure you have a backup!","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Exc
         private void btn_3_update_Click(object sender, EventArgs e)
         {
             // Update RDP Port Button Pressed
-            portKey.SetValue("PortNumber", txtBox_3_port.Text);
+            portKey.SetValue("PortNumber", txtBox_3_port.Text, RegistryValueKind.DWord);
             MessageBox.Show("RDP Port has been changed.\nPlease restart your machine for settings to take effect.", "Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
