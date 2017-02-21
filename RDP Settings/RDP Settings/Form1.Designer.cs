@@ -64,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_About = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbl_PortError = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -378,6 +379,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.lbl_PortError);
             this.tabPage3.Controls.Add(this.btn_3_update);
             this.tabPage3.Controls.Add(this.txtBox_3_port);
             this.tabPage3.Controls.Add(this.label2);
@@ -441,6 +443,16 @@
             this.label3.TabIndex = 37;
             this.label3.Text = "George Babichev 2016";
             // 
+            // lbl_PortError
+            // 
+            this.lbl_PortError.AutoSize = true;
+            this.lbl_PortError.Location = new System.Drawing.Point(31, 130);
+            this.lbl_PortError.Name = "lbl_PortError";
+            this.lbl_PortError.Size = new System.Drawing.Size(280, 13);
+            this.lbl_PortError.TabIndex = 3;
+            this.lbl_PortError.Text = "Please run this program as an administrator to use this tab.\r\n";
+            this.lbl_PortError.Visible = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,6 +513,7 @@
         private System.Windows.Forms.Button btn_About;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_1_update;
+        private System.Windows.Forms.Label lbl_PortError;
     }
 }
 

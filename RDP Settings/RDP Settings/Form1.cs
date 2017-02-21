@@ -15,7 +15,7 @@ namespace RDP_Settings
     {
         // Define the location, in the registry, where MRU data lives. Set to true so it's not read-only.
         RegistryKey mruLoc = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Terminal Server Client\\Default", true);
-        RegistryKey portKey = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp", true);
+        RegistryKey portKey;// = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp", true);
 
         private void updateReg()
         {
@@ -77,12 +77,28 @@ namespace RDP_Settings
         public mainForm()
         {
             InitializeComponent();
+            try
+            {
+                portKey = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp", true);
+                txtBox_3_port.Text = portKey.GetValue("PortNumber").ToString();
+            }
+            catch
+            {
+                lbl_PortError.Visible = true;
+                btn_3_update.Visible = false;
+                label2.Visible = false;
+                txtBox_3_port.Visible = false;
+            }
             updateReg();
             updateMRU();
-            txtBox_3_port.Text = portKey.GetValue("PortNumber").ToString();
             MessageBox.Show(@"This program makes changes to the Windows Registry.
 Make sure you have a backup!","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+
+
         }
+
+
 
         private void btn_1_refresh_Click(object sender, EventArgs e)
         {
